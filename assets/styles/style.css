@@ -196,6 +196,47 @@ footer p {
   font-size: 1.2em;
 }
 
+.modal {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.modal .full-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0.6);
+          transform: translate(-50%, -50%) scale(0.6);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.modal .full-img.open {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+}
+
+.modal.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+@media screen and (min-width: 1024px) {
+  .modal .full-img {
+    height: 90%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   html {
     overflow-x: hidden;
@@ -203,6 +244,9 @@ footer p {
   main .container .main-content .container .gallery {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
+  }
+  .modal .full-img {
+    width: 90%;
   }
 }
 
